@@ -1,0 +1,34 @@
+﻿@page
+@model PersonnelInformation.Pages.AddressesModel
+@{
+    ViewData["Title"] = "Address";
+}
+
+<h1>Address Information</h1>
+
+<form method="post">
+    <div class="form-group">
+
+        @for (int i = 0; i < Model.AddressList.Count; i++)
+        {
+            <input type="hidden" asp-for="AddressList[i]" />
+        }
+
+        <input asp-for="Street" type="text" placeholder="Street"/>
+        <input asp-for="City" type="text" placeholder="City" />
+        <input asp-for="State" type="text" placeholder="State" />
+        <input asp-for="ZipCode" type="text" placeholder="Zip Code" />
+        <input asp-for="Email" type="text" placeholder="Email" />
+
+        <button type="submit" class="btn btn-primary" >Submit</button>
+    </div>
+</form>
+
+<h2>Addresses List:</h2>
+@foreach(var item in Model.AddressList)
+{
+    <h3>
+        @item
+    </h3>
+}
+
