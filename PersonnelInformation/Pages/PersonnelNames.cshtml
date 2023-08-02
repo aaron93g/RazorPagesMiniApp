@@ -1,0 +1,26 @@
+﻿@page
+@model PersonnelInformation.Pages.PersonnelNamesModel
+@{
+    ViewData["Title"] = "Personnel Names";
+}
+
+<form method="post">
+    <div class="form-group">
+
+        @for (int i = 0; i < Model.Names.Count; i++)
+        {
+            <input type="hidden" asp-for="Names[i]" />
+        }
+
+        <input asp-for="FirstName" type="text" placeholder="First Name Here" />
+        <input asp-for="LastName" type="text" placeholder="Last Name Here" />
+        <button type="submit" class="btn btn-primary">submit</button>
+    </div>
+</form>
+
+
+<h2>Names: </h2>
+    @foreach(var item in Model.Names)
+    {
+        <h3>@item</h3>
+    }
